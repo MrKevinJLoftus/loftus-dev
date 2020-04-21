@@ -6,7 +6,7 @@
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a mat-list-item *ngFor="let route of routes" routerLink="route.url" (click)="sidenav.toggle()">{{ route.text }}</a>
+        <a mat-list-item *ngFor="let route of routes" routerLink="route.url" (click)="sidenav.toggle()"><mat-icon>{{ route.icon }}</mat-icon><span class="routeText">{{ route.text }}</span></a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
