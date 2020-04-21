@@ -8,7 +8,6 @@
 }
 
 .kevin-face {
-  max-width: 15%;
   height: auto;
   border-radius: 20px;
   margin-bottom: 1rem;
@@ -20,7 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 4rem;
+  text-align: center;
 }
 
 p a {
@@ -31,5 +30,32 @@ p a {
   }
   &:focus {
     outline: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .kevin-face {
+    max-width: 18%;
+  }
+  .welcome-text {
+    margin: 0 4rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .kevin-face {
+    max-width: 60%;
+  }
+  .welcome-text {
+    margin: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  .kevin-face {
+    max-width: 30%;
+  }
+  .welcome-text {
+    margin: 0 2rem;
   }
 }
