@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import './theme.scss';
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html, body { height: 100%; }
+body { margin: 0; }
+body * {
+  font-family: "Titillium Web", "Arial", "Times New Roman", "serif";
+  color: white;
+}
+
+.mat-sidenav {
+  // background: rgb(0, 175, 128);
+  width: 250px;
+  background: $primary;
+}

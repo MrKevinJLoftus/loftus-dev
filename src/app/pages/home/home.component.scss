@@ -1,0 +1,34 @@
+@import '../../../variables.scss';
+.container {
+  background: rgb(86,0,125);
+  background: linear-gradient(200deg, $accent 0%, rgba(9,121,110,1) 50%, $primary 100%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.kevin-face {
+  max-width: 15%;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4rem;
+}
+
+p a {
+  color: $accent;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus {
+    outline: none;
+  }
+}

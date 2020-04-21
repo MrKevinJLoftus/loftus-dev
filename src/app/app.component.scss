@@ -1,0 +1,36 @@
+@import '../variables.scss';
+.app-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.linkify {
+  cursor: pointer !important;
+}
+
+.mat-sidenav {
+  width: 175px;
+  background: $primary-dark;
+}
+
+.mat-nav-list * {
+  color: white;
+}
+
+.mat-toolbar {
+  height: 5vh;
+}
+
+.main-content {
+  height: 95vh;
+  width: 100vw;
+}
+
+h1 {
+  font-family: "Titillium Web", "Arial", "Times New Roman", "serif";
+}
