@@ -8,10 +8,8 @@
 }
 
 .kevin-face {
-  height: auto;
   border-radius: 20px;
-  margin-bottom: 1rem;
-  transform: rotate(-90deg);
+  flex-shrink: 0;
 }
 
 .welcome-text {
@@ -33,29 +31,52 @@ p a {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1441px) {
   .kevin-face {
-    max-width: 18%;
+    max-width: 15%;
+    margin-bottom: 6rem;
+  }
+  .welcome-text {
+    margin: 0 6rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+  .kevin-face {
+    max-width: 22%;
+    margin-bottom: 6rem;
   }
   .welcome-text {
     margin: 0 4rem;
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .kevin-face {
-    max-width: 60%;
+    max-width: 45%;
+    margin-bottom: 3rem;
   }
   .welcome-text {
-    margin: 0 1rem;
+    margin: 0 3rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .kevin-face {
+    max-width: 45%;
+    margin-bottom: 3rem;
+  }
+  .welcome-text {
+    margin: 0 2rem;
   }
 }
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
   .kevin-face {
-    max-width: 30%;
+    max-width: 60%;
+    margin-bottom: 3rem;
   }
   .welcome-text {
-    margin: 0 2rem;
+    margin: 0 1rem;
   }
 }

@@ -24,6 +24,7 @@
 
 .mat-toolbar {
   height: 5vh;
+  display: flex;
 }
 
 .main-content {
@@ -37,4 +38,19 @@ h1 {
 
 .routeText {
   margin-left: 1rem;
+}
+
+.github, .linkedin {
+  // align-self: flex-end;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0 1rem;
+  a img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

@@ -1,12 +1,35 @@
 <div class="app-container">
   <mat-toolbar color="primary" class="app-toolbar">
-    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <h1 class="linkify" (click)="navigateHome()">kevin.loftus</h1>
+    <span class="spacer"></span>
+    <span class="linkedin"
+      ><a
+        href="https://www.linkedin.com/in/kevin-loftus-b7578173"
+        target="_blank"
+        ><img src="../assets/LI-In-Bug.png" alt="linkedin-social-icon" /></a
+    ></span>
+    <span class="github"
+      ><a href="https://github.com/MrKevinJLoftus" target="_blank"
+        ><img
+          src="../assets/GitHub-Mark-32px.png"
+          alt="github-social-icon" /></a
+    ></span>
   </mat-toolbar>
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav>
       <mat-nav-list>
-        <a mat-list-item *ngFor="let route of routes" [routerLink]="[route.url]" (click)="sidenav.toggle()"><mat-icon>{{ route.icon }}</mat-icon><span class="routeText">{{ route.text }}</span></a>
+        <a
+          mat-list-item
+          *ngFor="let route of routes"
+          [routerLink]="[route.url]"
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon>{{ route.icon }}</mat-icon
+          ><span class="routeText">{{ route.text }}</span>
+        </a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

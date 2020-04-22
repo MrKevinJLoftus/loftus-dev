@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'loftus-dev';
   routes: Route[] = [
-    { url: '/home', text: 'Home', icon: 'home' },
+    { url: '/', text: 'Home', icon: 'home' },
     { url: '/blog', text: 'Blog', icon: 'comment' },
     { url: '/projects', text: 'Projects', icon: 'build' },
   ];
@@ -20,6 +20,6 @@ export class AppComponent {
   ) { }
 
   navigateHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
   }
 }
