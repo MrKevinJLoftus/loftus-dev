@@ -5,9 +5,9 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { BlogComponent } from './pages/blog/blog.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'projects', component: ProjectsComponent },
+  { path: '', component: HomeComponent, data: { title: 'Home' } },
+  { path: 'blog', component: BlogComponent, data: { title: 'Blog' } },
+  { path: 'projects', component: ProjectsComponent, data: { title: 'Projects' } },
   { path: '**', redirectTo: '/' }
 ];
 
