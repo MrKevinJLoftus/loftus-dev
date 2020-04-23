@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { UnderConstructionComponent } from './shared/components/under-construction/under-construction.component';
+import { PostComponent } from './pages/blog/components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UnderConstructionComponent } from './shared/components/under-constructi
     HomeComponent,
     BlogComponent,
     ProjectsComponent,
-    UnderConstructionComponent
+    UnderConstructionComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
