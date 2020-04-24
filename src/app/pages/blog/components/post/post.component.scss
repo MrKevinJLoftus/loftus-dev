@@ -1,3 +1,16 @@
-mat-card * {
-  color: black;
+::ng-deep mat-card *, .post-text * {
+  color: black !important;
+}
+mat-card-title * {
+  margin: 0;
+}
+::ng-deep .post-text {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    align-self: center;
+  }
+  blockquote {
+    background-color: lightgray;
+  }
 }

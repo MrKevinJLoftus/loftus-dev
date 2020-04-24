@@ -1,9 +1,11 @@
 <mat-card>
-  <mat-card-header>
+  <mat-card-title>
     <h1>{{ data.title }}</h1>
-  </mat-card-header>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <i>{{ data.author }}</i>
+  </mat-card-subtitle>
   <mat-card-content>
-    <p><i>{{ data.author }}</i></p>
-    <div markdown [src]="data.text"></div>
+    <markdown class="post-text" [data]="data.text"></markdown>
   </mat-card-content>
 </mat-card>

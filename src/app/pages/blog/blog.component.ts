@@ -12,8 +12,17 @@ export class BlogComponent implements OnInit {
     title: 'First Blog Post!',
     author: 'Kevin Loftus',
     keywords: ['start', 'first', 'development'],
-    text: `#First!
-    Hey everyone, welcome to the blog! It's finally up and running.`
+    text: `
+    # First!
+---
+
+    Hey everyone, welcome to the blog! It's finally up and running.
+
++list
++more list
+
+    ## block quote?
+    > bruv`
   };
 
   constructor() { }
