@@ -6,7 +6,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
-  { path: 'blog', component: BlogComponent, data: { title: 'Blog' } },
+  { path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule), data: { title: 'Blog' } },
   { path: 'projects', component: ProjectsComponent, data: { title: 'Projects' } },
   { path: '**', redirectTo: '/' }
 ];

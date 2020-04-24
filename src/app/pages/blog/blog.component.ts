@@ -12,14 +12,8 @@ export class BlogComponent implements OnInit {
     title: 'First Blog Post!',
     author: 'Kevin Loftus',
     keywords: ['start', 'first', 'development'],
-    textSections: [
-      {
-        paragraphs: [
-          'First!',
-          `Hey everyone, welcome to the blog! It's finally up and running.`
-        ]
-      }
-    ]
+    text: `#First!
+    Hey everyone, welcome to the blog! It's finally up and running.`
   };
 
   constructor() { }
