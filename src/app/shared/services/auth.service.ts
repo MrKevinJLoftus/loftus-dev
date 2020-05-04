@@ -38,8 +38,7 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-  login(username: string, password: string) {
-    const authData: AuthData = {username, password};
+  login(authData: AuthData) {
     this.http.post<{token: string, expiresIn: number, username: string, userId: string}>(
       `${environment.apiUrl}/user/login`, authData)
       .subscribe(response => {
@@ -50,15 +49,18 @@ export class AuthService {
           this.loginSetup(expiresInDuration, response.userId, token);
         } else {
           this.logout(false);
-          this.messageService.setMessage('Your username or password was incorrect. Please try again.', MessageType.ERROR);
+          this.messageService.show('Your username or password was incorrect. Please try again.');
         }
     }, error => {
       console.error(error);
-      this.messageService.setMessage('Your username or password was incorrect. Please try again.', MessageType.ERROR);
+      this.messageService.show('Your username or password was incorrect. Please try again.');
       this.logout(false);
     });
   }
 
+  /**
+   * Hard-coded to always point to localhost, not intended to work in production because dev and prod share DB.
+   */
   createUser(username: string, password: string) {
     const authData: AuthData = {username, password};
     this.http.post<{token: string, expiresIn: number, userId: string}>('http://localhost:3000/api/user/signUp', authData)
@@ -71,7 +73,7 @@ export class AuthService {
         }
     }, error => {
       console.error(error);
-      this.messageService.setMessage('Something went wrong.', MessageType.ERROR);
+      this.messageService.show('Something went wrong.');
     });
   }
 

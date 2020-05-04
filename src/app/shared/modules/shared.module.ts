@@ -1,4 +1,7 @@
+
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { UnderConstructionComponent } from '../components/under-construction/under-construction.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -13,8 +16,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from '../components/login/login.component';
 
 const MODULES = [
+  CommonModule,
+  ReactiveFormsModule,
   MatCardModule,
   MatButtonModule,
   MatToolbarModule,
@@ -31,12 +38,14 @@ const MODULES = [
   MatProgressSpinnerModule
 ];
 
+const COMPONENTS = [
+  UnderConstructionComponent,
+  LoginComponent
+];
+
 @NgModule({
-  imports: [
-    ...MODULES
-  ],
-  exports: [
-    ...MODULES
-  ]
+  declarations: [...COMPONENTS],
+  imports: [...MODULES],
+  exports: [...MODULES, ...COMPONENTS]
 })
-export class MaterialModule { }
+export class SharedModule { }
