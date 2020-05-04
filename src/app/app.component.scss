@@ -27,9 +27,12 @@
   display: flex;
 }
 
-.main-content {
+::ng-deep .main-content {
   height: 95vh;
   width: 100vw;
+  * {
+    font-family: "Titillium Web", "Arial", "Times New Roman", "serif" !important;
+  }
 }
 
 h1 {

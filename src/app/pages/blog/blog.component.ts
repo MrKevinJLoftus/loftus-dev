@@ -13,16 +13,9 @@ export class BlogComponent implements OnInit {
     author: 'Kevin Loftus',
     keywords: ['start', 'first', 'development'],
     text: `
-    # First!
----
-
-    Hey everyone, welcome to the blog! It's finally up and running.
-
-+list
-+more list
-
-    ## block quote?
-    > bruv`
+# First!
+Hey everyone, welcome to the blog! It's finally up and running.
+`
   };
 
   constructor() { }

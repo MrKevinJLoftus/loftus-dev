@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/highlight.js/styles/vs2015.css"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js"
