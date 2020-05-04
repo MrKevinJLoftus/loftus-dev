@@ -1,0 +1,12 @@
+@import '../../../../variables.scss';
+
+mat-card {
+  background-color: $middleBlue;
+  width: 30vw;
+}
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
