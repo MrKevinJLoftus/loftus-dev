@@ -6,9 +6,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MessageService {
 
+  private duration = 5;
+
   constructor(private snackbar: MatSnackBar) { }
 
   show(message: string, closeBtnText = 'Dismiss') {
-    this.snackbar.open(message, closeBtnText);
+    this.snackbar.open(message, closeBtnText, {
+      duration: this.duration * 1000
+    });
   }
 }
