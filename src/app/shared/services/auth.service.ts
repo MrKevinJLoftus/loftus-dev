@@ -38,6 +38,10 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
+  /**
+   * Attempt to log the user in.
+   * Will always redirect user to home page.
+   */
   login(authData: AuthData) {
     this.http.post<{token: string, expiresIn: number, username: string, userId: string}>(
       `${environment.apiUrl}/user/login`, authData)

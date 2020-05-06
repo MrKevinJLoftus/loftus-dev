@@ -1,8 +1,9 @@
-@import '../../../../variables.scss';
+@import '../../../../../variables.scss';
 
 mat-card {
   background-color: $middleBlue;
-  width: 30vw;
+  width: 25vw;
+  border: 1px solid white;
 }
 .form-fields {
   display: flex;

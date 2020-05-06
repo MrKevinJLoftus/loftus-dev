@@ -17,7 +17,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from '../components/login/login.component';
 
 const MODULES = [
   CommonModule,
@@ -39,8 +38,7 @@ const MODULES = [
 ];
 
 const COMPONENTS = [
-  UnderConstructionComponent,
-  LoginComponent
+  UnderConstructionComponent
 ];
 
 @NgModule({

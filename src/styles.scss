@@ -12,7 +12,10 @@ body * {
 }
 
 .mat-sidenav {
-  // background: rgb(0, 175, 128);
   width: 250px;
   background: $primary;
+}
+mat-error {
+  font-size: 0.7rem;
+  font-weight: bold;
 }

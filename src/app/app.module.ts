@@ -8,16 +8,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { SharedModule } from './shared/modules/shared.module';
-import { LoginComponent } from './pages/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/auth/auth-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogComponent,
-    ProjectsComponent,
-    LoginComponent
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
