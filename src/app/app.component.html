@@ -1,5 +1,8 @@
+<div class="loading-overlay" *ngIf="isLoading">
+  <mat-spinner color="primary"></mat-spinner>
+</div>
 <div class="app-container">
-  <mat-toolbar color="primary" class="app-toolbar">
+  <mat-toolbar class="app-toolbar">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -30,6 +33,14 @@
           <mat-icon>{{ route.icon }}</mat-icon
           ><span class="routeText">{{ route.text }}</span>
         </a>
+        <a
+          *ngIf="isAuthenticated"
+          mat-list-item
+          (click)="logout(); sidenav.toggle();"
+        >
+        <mat-icon>exit_to_app</mat-icon>
+        <span class="routeText">Logout</span>
+      </a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UnderConstructionComponent implements OnInit {
   @Input() pageName: string;
+  @Input() inProgress = false;
 
   constructor() { }
 

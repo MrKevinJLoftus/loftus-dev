@@ -3,3 +3,14 @@ export interface Route {
   text: string;
   icon: string;
 }
+
+export enum MessageType {
+  ERROR,
+  INFO,
+  SUCCESS
+}
+
+export interface AuthData {
+  username: string;
+  password: string;
+}

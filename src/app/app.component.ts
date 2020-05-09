@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Route } from './shared/models/general.model';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map } from 'rxjs/operators';
+import { AuthService } from './shared/services/auth.service';
+import { LoadingService } from './shared/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +18,27 @@ export class AppComponent {
     { url: '/blog', text: 'Blog', icon: 'comment' },
     { url: '/projects', text: 'Projects', icon: 'build' },
   ];
+  isAuthenticated = false;
+  isLoading = false;
 
   constructor(
     private router: Router,
     private titleService: Title,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
+    private loadingService: LoadingService
   ) {
+      // subscribe to loading status
+      this.loadingService.getIsLoadingListener().subscribe(res => {
+        this.isLoading = res;
+      });
+      // subscribe to auth changes
+      this.authService.getAuthStatusListener().subscribe(res => {
+        this.isAuthenticated = res;
+      });
+      // attempt to auto-auth user
+      this.authService.autoAuthUser();
+      // handle title changes
       this.router.events
       .pipe(
         filter(event => event instanceof NavigationEnd),
@@ -40,5 +57,9 @@ export class AppComponent {
 
   navigateHome() {
     this.router.navigate(['/']);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }
