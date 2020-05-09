@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthData } from 'src/app/shared/models/general.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -7,14 +7,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-
-  constructor(
-    private authService: AuthService
-  ) { }
-
-  ngOnInit(): void {
-  }
+export class LoginComponent {
+  constructor(private authService: AuthService) { }
 
   /**
    * Call auth service to handle login attempt.
