@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { MessageType, AuthData } from '../models/general.model';
+import { AuthData } from '../models/general.model';
 import { MessageService } from './message.service';
-import { environment } from '../app.config';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
