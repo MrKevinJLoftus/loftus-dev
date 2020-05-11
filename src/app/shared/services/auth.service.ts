@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   /**
-   * Hard-coded to always point to localhost, not intended to work in production because dev and prod share DB.
+   * Hard-coded to always point to localhost, endpoint is not active on prod API.
    * This may be useful in the future if external users need to be able to register.
    */
   createUser(username: string, password: string) {
