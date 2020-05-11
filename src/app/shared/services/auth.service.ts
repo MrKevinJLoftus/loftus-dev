@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { MessageType, AuthData } from '../models/general.model';
+import { AuthData } from '../models/general.model';
 import { MessageService } from './message.service';
-import { environment } from '../app.config';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   /**
-   * Hard-coded to always point to localhost, not intended to work in production because dev and prod share DB.
+   * Hard-coded to always point to localhost, endpoint is not active on prod API.
    * This may be useful in the future if external users need to be able to register.
    */
   createUser(username: string, password: string) {
