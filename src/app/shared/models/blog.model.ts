@@ -1,5 +1,6 @@
 export interface IBlogPost {
   title: string;
+  author: string;
   tags: string[];
 }
 

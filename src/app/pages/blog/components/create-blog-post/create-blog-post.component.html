@@ -1,1 +1,23 @@
-<p>create-blog-post works!</p>
+<div class="split-view">
+  <mat-card>
+    <mat-card-title>
+      <h1>Blog Post Editor</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="postForm">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput required formControlName="title" />
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      <h1>Output Preview</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <app-markdown [text]="postForm.controls.body.value"></app-markdown>
+    </mat-card-content>
+  </mat-card>
+</div>

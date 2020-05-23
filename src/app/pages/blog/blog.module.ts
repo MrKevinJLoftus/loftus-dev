@@ -5,6 +5,7 @@ import { PostComponent } from './components/post/post.component';
 import { BlogRoutingModule } from './blog-routing.module';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { CreateBlogPostComponent } from './components/create-blog-post/create-blog-post.component';
+import { AllBlogPostsComponent } from './components/all-blog-posts/all-blog-posts.component';
 
 const COMPONENTS = [
   BlogComponent,
@@ -18,7 +19,7 @@ const MODULES = [
 ];
 
 @NgModule({
-  declarations: [...COMPONENTS, CreateBlogPostComponent],
+  declarations: [...COMPONENTS, CreateBlogPostComponent, AllBlogPostsComponent],
   imports: [...MODULES]
 })
 export class BlogModule { }
