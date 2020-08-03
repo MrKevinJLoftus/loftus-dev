@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from 'src/app/shared/services/blog.service';
+import { BlogPostSummary } from 'src/app/shared/models/blog.model';
 
 @Component({
   selector: 'app-all-blog-posts',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-blog-posts.component.scss']
 })
 export class AllBlogPostsComponent implements OnInit {
+  posts: BlogPostSummary[] = [];
 
-  constructor() { }
+  constructor(private blogService: BlogService) {
+    this.blogService.fetchAllPosts().subscribe(res => {
+      this.posts = res;
+    });
+  }
 
   ngOnInit(): void {
   }

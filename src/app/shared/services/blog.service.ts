@@ -49,6 +49,7 @@ export class BlogService {
       map(res => res.posts),
       catchError((error) => {
         this.messageService.show(error);
+        console.log(error);
         return throwError(error);
       })
     );

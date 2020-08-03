@@ -17,7 +17,7 @@ export class CreateBlogPostComponent implements OnInit {
     private blogService: BlogService,
     private fb: FormBuilder
     ) {
-      this.fb.group({
+      this.postForm = this.fb.group({
         title: ['', Validators.required],
         body: ['', Validators.required],
         tags: ['', Validators.required]

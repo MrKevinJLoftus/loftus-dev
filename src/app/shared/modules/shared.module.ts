@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownComponent } from '../components/markdown/markdown.component';
 
@@ -34,7 +35,8 @@ const MODULES = [
   MatMenuModule,
   MatSelectModule,
   MatListModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatChipsModule
 ];
 
 const COMPONENTS = [

@@ -1,0 +1,21 @@
+.split-view {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  mat-card {
+    width: 40vw;
+  }
+  * {
+    color: black;
+  }
+}
+.editor-card {
+  margin-right: 2rem;
+}
+.header {
+  margin: 1.5rem 0;
+  text-align: center;
+  h1 {
+    font-size: 2rem;
+  }
+}
