@@ -17,7 +17,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MarkdownComponent } from '../components/markdown/markdown.component';
 
 const MODULES = [
   CommonModule,
@@ -40,8 +39,7 @@ const MODULES = [
 ];
 
 const COMPONENTS = [
-  UnderConstructionComponent,
-  MarkdownComponent
+  UnderConstructionComponent
 ];
 
 @NgModule({

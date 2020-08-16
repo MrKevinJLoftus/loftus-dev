@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Create Blog Post</h1>
+  <h1 class="white-text">Create Blog Post</h1>
 </div>
 <div class="split-view">
   <mat-card class="editor-card">
@@ -8,10 +8,23 @@
     </mat-card-title>
     <mat-card-content>
       <form [formGroup]="postForm">
-        <mat-form-field>
-          <mat-label>Title</mat-label>
-          <input matInput required formControlName="title" />
-        </mat-form-field>
+        <div>
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput required formControlName="title" />
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>Author</mat-label>
+            <input matInput required formControlName="author" />
+          </mat-form-field>
+        </div>
+        <div>
+          <p-editor formControlName="body" [style]="{'height':'50vh'}" [modules]="quillModules">
+            <p-header></p-header>
+          </p-editor>
+        </div>
       </form>
     </mat-card-content>
   </mat-card>
@@ -20,7 +33,11 @@
       <h1>Output Preview</h1>
     </mat-card-title>
     <mat-card-content>
-      <app-markdown [text]="postForm.controls.body.value"></app-markdown>
+      <app-post [post]="post"></app-post>
     </mat-card-content>
   </mat-card>
+  <div></div>
+</div>
+<div *ngIf="canSubmit" class="footer">
+  <button [disabled]="!canSubmit" mat-flat-button color="primary" (click)="submitPost()">Submit</button>
 </div>

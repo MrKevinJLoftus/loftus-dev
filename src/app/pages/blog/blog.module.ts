@@ -6,6 +6,7 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { CreateBlogPostComponent } from './components/create-blog-post/create-blog-post.component';
 import { AllBlogPostsComponent } from './components/all-blog-posts/all-blog-posts.component';
+import { EditorModule } from 'primeng/editor';
 
 const COMPONENTS = [
   BlogComponent,
@@ -15,7 +16,8 @@ const COMPONENTS = [
 const MODULES = [
   CommonModule,
   BlogRoutingModule,
-  SharedModule
+  SharedModule,
+  EditorModule
 ];
 
 @NgModule({

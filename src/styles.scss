@@ -8,7 +8,6 @@ html, body { height: 100%; }
 body { margin: 0; }
 body * {
   font-family: "Titillium Web", "Arial", "Times New Roman", "serif";
-  color: white;
 }
 
 .mat-sidenav {
@@ -18,4 +17,7 @@ body * {
 mat-error {
   font-size: 0.7rem;
   font-weight: bold;
+}
+.white-text {
+  color: white;
 }

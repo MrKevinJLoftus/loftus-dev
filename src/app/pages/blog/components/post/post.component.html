@@ -1,11 +1,11 @@
-<mat-card *ngIf="post$ | async as post">
+<mat-card>
   <mat-card-title>
-    <h1>{{ post.title }}</h1>
+    <h1>{{ post?.title }}</h1>
   </mat-card-title>
   <mat-card-subtitle>
-    <i>{{ post.author }}</i>
+    <i>{{ post?.author }}</i>
   </mat-card-subtitle>
-  <mat-card-content>
-    <app-markdown [text]="post.body"></app-markdown>
+  <mat-card-content class="ql-editor">
+    <div [innerHTML]="post?.body"></div>
   </mat-card-content>
 </mat-card>

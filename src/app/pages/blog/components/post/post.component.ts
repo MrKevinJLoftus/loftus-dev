@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PostComponent implements OnInit {
 
-  post$: Observable<BlogPost>;
+  @Input() post: BlogPost;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,10 +20,10 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.post$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.blogService.fetchPostByTitle(params.get('title'))
-    ));
+    // this.post$ = this.route.paramMap.pipe(
+    //   switchMap((params: ParamMap) =>
+    //     this.blogService.fetchPostByTitle(params.get('title'))
+    // ));
   }
 
 }
