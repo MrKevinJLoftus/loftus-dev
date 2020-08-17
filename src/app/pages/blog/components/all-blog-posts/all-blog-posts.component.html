@@ -1,22 +1,26 @@
 <div class="container">
-  <div class="post-summary" *ngFor="let post of posts">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          {{ post.kebabTitle }}
-        </mat-card-title>
-        <mat-card-subtitle>
-          <p>{{ post.author }}</p>
-          <p>
-            <mat-chip *ngFor="let tag of post.tags">
-              {{ tag }}
-            </mat-chip>
-          </p>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{ post.blurb }}</p>
-      </mat-card-content>
-    </mat-card>
+  <div class="post-grid">
+    <div class="post-summary linkify" *ngFor="let post of posts" (click)="viewPost(post)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            {{ post.title }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>{{ post.author }}</p>
+            <mat-chip-list #chipList aria-label="blog post tags">
+              <mat-chip *ngFor="let tag of post.tags" [removable]="false">
+                {{ tag }}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="ql-editor" [innerHTML]="post.blurb + '...'"></div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
+  <p *ngIf="posts.length === 0">There are currently no blog posts available to view.</p>
+  <button color="primary" mat-flat-button routerLink="/blog/create">Create Blog Post</button>
 </div>

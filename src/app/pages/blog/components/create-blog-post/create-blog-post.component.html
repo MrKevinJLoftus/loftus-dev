@@ -17,13 +17,28 @@
         <div>
           <mat-form-field>
             <mat-label>Author</mat-label>
-            <input matInput required formControlName="author" />
+            <input matInput formControlName="author" />
           </mat-form-field>
         </div>
         <div>
           <p-editor formControlName="body" [style]="{'height':'50vh'}" [modules]="quillModules">
             <p-header></p-header>
           </p-editor>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-chip-list #chipList aria-label="blog post tags">
+              <mat-chip *ngFor="let tag of tags" [removable]="true" (removed)="removeTag(tag)">
+                {{ tag }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="New tags..."
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="true"
+                      (matChipInputTokenEnd)="addTag($event)">
+            </mat-chip-list>
+          </mat-form-field>
         </div>
       </form>
     </mat-card-content>
@@ -38,6 +53,11 @@
   </mat-card>
   <div></div>
 </div>
-<div *ngIf="canSubmit" class="footer">
-  <button [disabled]="!canSubmit" mat-flat-button color="primary" (click)="submitPost()">Submit</button>
+<div class="footer">
+  <div class="footer-actions">
+    <button mat-flat-button color="accent" routerLink="/blog/all"><< Back to All Posts</button>
+    <div matTooltip="You must be logged in to submit a blog post." [matTooltipDisabled]="canSubmit">
+      <button [disabled]="!canSubmit" mat-flat-button color="primary" (click)="submitPost()">Submit</button>
+    </div>
+  </div>
 </div>

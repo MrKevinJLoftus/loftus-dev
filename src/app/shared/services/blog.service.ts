@@ -5,6 +5,7 @@ import { BlogPost, BlogPostSummary } from '../models/blog.model';
 import { environment } from 'src/environments/environment';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { ApiResponse } from '../models/general.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,10 @@ export class BlogService {
   /**
    * Create new blog post.
    */
-  createNewBlogPost(blogPost: BlogPost) {
-    return this.http.post(`${environment.apiUrl}/blog/post`, { blogPost }).pipe(
+  createNewBlogPost(blogPost: BlogPost): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(`${environment.apiUrl}/blog/post`, { blogPost }).pipe(
       catchError((error) => {
-        this.messageService.show(error);
+        this.messageService.show(error.message);
         return throwError(error);
       })
     );
@@ -35,7 +36,7 @@ export class BlogService {
     return this.http.get<{ post: BlogPost, message: string }>(`${environment.apiUrl}/blog/post/${title}`).pipe(
       map(res => res.post),
       catchError((error) => {
-        this.messageService.show(error);
+        this.messageService.show(error.message);
         return throwError(error);
       })
     );
@@ -48,7 +49,7 @@ export class BlogService {
     return this.http.get<{ posts: BlogPostSummary[], message: string }>(`${environment.apiUrl}/blog/posts`).pipe(
       map(res => res.posts),
       catchError((error) => {
-        this.messageService.show(error);
+        this.messageService.show(error.message);
         console.log(error);
         return throwError(error);
       })

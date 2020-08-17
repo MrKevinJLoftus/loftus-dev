@@ -2,4 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: 1rem 0 0;
+  width: 90vw;
+}
+.post-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 80vw;
+}
+.post-summary {
+  height: 20vh;
+  width: 20vw;
+  margin: 2rem;
 }

@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MODULES = [
   CommonModule,
@@ -35,7 +36,8 @@ const MODULES = [
   MatSelectModule,
   MatListModule,
   MatProgressSpinnerModule,
-  MatChipsModule
+  MatChipsModule,
+  MatTooltipModule
 ];
 
 const COMPONENTS = [

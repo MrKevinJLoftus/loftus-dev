@@ -4,6 +4,10 @@ import { BlogService } from 'src/app/shared/services/blog.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Subscription } from 'rxjs';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatChipInputEvent} from '@angular/material/chips';
+import { MessageService } from 'src/app/shared/services/message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-blog-post',
@@ -13,6 +17,8 @@ import { Subscription } from 'rxjs';
 export class CreateBlogPostComponent implements OnInit {
 
   postForm: FormGroup;
+  tags: string[] = [];
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   post: BlogPost;
   canSubmit = false;
   subscription: Subscription = new Subscription();
@@ -23,13 +29,14 @@ export class CreateBlogPostComponent implements OnInit {
   constructor(
     private blogService: BlogService,
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private messageService: MessageService,
+    private router: Router
     ) {
       this.postForm = this.fb.group({
         title: ['', Validators.required],
         author: [''],
-        body: ['', Validators.required],
-        tags: ['', Validators.required]
+        body: ['', Validators.required]
       });
       this.canSubmit = this.authService.getIsAuthenticated();
       this.subscription.add(this.authService.getAuthStatusListener().subscribe((authStatus) => {
@@ -45,7 +52,14 @@ export class CreateBlogPostComponent implements OnInit {
    * Call service to save blog post.
    */
   submitPost() {
-    this.blogService.createNewBlogPost(this.post);
+    if (this.postForm.valid) {
+      this.blogService.createNewBlogPost(this.post).subscribe((res) => {
+        this.messageService.show(res.message);
+        this.router.navigate(['/blog/all']);
+      });
+    } else {
+      this.messageService.show('Blog post title and body are required fields.');
+    }
   }
 
   /**
@@ -57,9 +71,35 @@ export class CreateBlogPostComponent implements OnInit {
         title: formVals.title,
         author: formVals.author,
         body: formVals.body,
-        tags: formVals.tags
+        tags: this.tags
       };
     }));
   }
 
+  /**
+   * Add a tag for the blog post.
+   */
+  addTag(event: MatChipInputEvent) {
+    const input = event.input;
+    const value = (event.value || '').trim();
+    // add tag to array
+    if (!!value) {
+      this.tags.push(value);
+    }
+    // reset the input value
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  /**
+   * Remove a tag from the blog post.
+   * @param tag
+   */
+  removeTag(tag: string) {
+    const tagIndex = this.tags.indexOf(tag);
+    if (tagIndex > -1) {
+      this.tags.splice(tagIndex, 1);
+    }
+  }
 }

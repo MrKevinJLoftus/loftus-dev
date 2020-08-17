@@ -101,6 +101,7 @@ export class AuthService {
   }
 
   logout(navigateAway: boolean = true) {
+    const wasAuthenticated = this.isAuthenticated === true;
     this.token = null;
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
@@ -109,7 +110,9 @@ export class AuthService {
     if (navigateAway) {
       this.router.navigate(['/']);
     }
-    this.messageService.show('Logout successful.');
+    if (wasAuthenticated) {
+      this.messageService.show('Logout successful.');
+    }
   }
 
   private loginSetup(expiresInDuration: number, userId: string, token: string) {
