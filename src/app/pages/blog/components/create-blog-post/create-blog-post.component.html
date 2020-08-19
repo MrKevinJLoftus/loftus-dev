@@ -21,7 +21,7 @@
           </mat-form-field>
         </div>
         <div>
-          <p-editor formControlName="body" [style]="{'height':'50vh'}" [modules]="quillModules">
+          <p-editor formControlName="body" [style]="{'height':'40vh'}" [modules]="quillModules">
             <p-header></p-header>
           </p-editor>
         </div>
@@ -48,7 +48,10 @@
       <h1>Output Preview</h1>
     </mat-card-title>
     <mat-card-content>
-      <app-post [post]="post"></app-post>
+      <app-post *ngIf="post; else noPost" [post]="post"></app-post>
+      <ng-template #noPost>
+        <i>Post preview will display here...</i>
+      </ng-template>
     </mat-card-content>
   </mat-card>
   <div></div>

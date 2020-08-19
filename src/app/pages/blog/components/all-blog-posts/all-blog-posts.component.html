@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="post-grid">
-    <div class="post-summary linkify" *ngFor="let post of posts" (click)="viewPost(post)">
+  <div class="post-grid" *ngIf="posts.length > 0; else noPosts">
+    <div class="post-summary linkify mat-elevation-z5" *ngFor="let post of posts" (click)="viewPost(post)">
       <mat-card>
         <mat-card-header>
           <mat-card-title>
@@ -21,6 +21,10 @@
       </mat-card>
     </div>
   </div>
-  <p *ngIf="posts.length === 0">There are currently no blog posts available to view.</p>
-  <button color="primary" mat-flat-button routerLink="/blog/create">Create Blog Post</button>
+  <ng-template #noPosts>
+    <p>There are currently no blog posts available to view.</p>
+  </ng-template>
+  <div>
+    <button color="primary" mat-flat-button routerLink="/blog/create">Create Blog Post</button>
+  </div>
 </div>

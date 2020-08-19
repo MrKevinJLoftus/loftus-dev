@@ -1,3 +1,4 @@
+@import '../../../../../variables.scss';
 .container {
   display: flex;
   justify-content: center;
@@ -12,9 +13,13 @@
   align-items: center;
   flex-direction: row;
   width: 80vw;
+  height: 60vh;
 }
 .post-summary {
   height: 20vh;
   width: 20vw;
   margin: 2rem;
+}
+mat-card {
+  border: 3px solid $lightMiddleBlue;
 }
