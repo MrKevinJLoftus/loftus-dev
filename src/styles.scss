@@ -2,13 +2,11 @@
 @import './theme.scss';
 @import './variables.scss';
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 html, body { height: 100%; }
 body { margin: 0; }
 body * {
   font-family: "Titillium Web", "Arial", "Times New Roman", "serif";
-  color: white;
 }
 
 .mat-sidenav {
@@ -18,4 +16,10 @@ body * {
 mat-error {
   font-size: 0.7rem;
   font-weight: bold;
+}
+.white-text {
+  color: white;
+}
+mat-chip {
+  background-color: $accent !important;
 }

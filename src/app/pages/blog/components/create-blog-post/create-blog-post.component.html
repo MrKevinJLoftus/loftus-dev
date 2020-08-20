@@ -1,0 +1,60 @@
+<div class="header">
+  <h1 class="white-text">Create Blog Post</h1>
+</div>
+<div class="split-view">
+  <mat-card class="editor-card">
+    <mat-card-title>
+      <h1>Blog Post Editor</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="postForm">
+        <div>
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput required formControlName="title" />
+          </mat-form-field>
+        </div>
+        <div>
+          <p-editor formControlName="body" [style]="{'height':'40vh'}" [modules]="quillModules">
+            <p-header></p-header>
+          </p-editor>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-chip-list #chipList aria-label="blog post tags">
+              <mat-chip *ngFor="let tag of tags" [removable]="true" (removed)="removeTag(tag)">
+                {{ tag }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="New tags..."
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="true"
+                      (matChipInputTokenEnd)="addTag($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="preview-card">
+    <mat-card-title>
+      <h1>Output Preview</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <app-post *ngIf="post; else noPost" [post]="post"></app-post>
+      <ng-template #noPost>
+        <i>Post preview will display here...</i>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+  <div></div>
+</div>
+<div class="footer">
+  <div class="footer-actions">
+    <button mat-flat-button color="accent" routerLink="/blog/all"><< Back to All Posts</button>
+    <div matTooltip="You must be logged in to submit a blog post." [matTooltipDisabled]="canSubmit">
+      <button [disabled]="!canSubmit" mat-flat-button color="primary" (click)="submitPost()">Submit</button>
+    </div>
+  </div>
+</div>

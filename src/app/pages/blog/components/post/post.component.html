@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>
+    <h1>{{ post?.title }}</h1>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <div>
+      <i>{{ post?.author }}</i>
+    </div>
+    <div>
+      <em>{{ post?.createdDate | date}}</em>
+    </div>
+    <div class="tag-chips">
+      <mat-chip-list *ngIf="post?.tags" #chipList aria-label="blog post tags">
+        <mat-chip *ngFor="let tag of post.tags" [removable]="false">
+          {{ tag }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-subtitle>
+  <mat-card-content class="ql-editor">
+    <div [innerHTML]="post?.body"></div>
+  </mat-card-content>
+  <mat-card-footer>
+
+  </mat-card-footer>
+</mat-card>

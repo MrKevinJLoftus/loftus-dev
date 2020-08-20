@@ -51,6 +51,7 @@ export class AuthService {
           this.token = token;
           const expiresInDuration = response.expiresIn;
           this.loginSetup(expiresInDuration, response.userId, token);
+          this.messageService.show('Login successful.');
         } else {
           this.logout(false);
           this.messageService.show('Your username or password was incorrect. Please try again.');
@@ -96,11 +97,11 @@ export class AuthService {
       this.userId = authInformation.userId;
       this.setAuthTimer(expiresIn / 1000);
       this.authStatusListener.next(true);
-      this.postLoginNavigation();
     }
   }
 
   logout(navigateAway: boolean = true) {
+    const wasAuthenticated = this.isAuthenticated === true;
     this.token = null;
     this.isAuthenticated = false;
     this.authStatusListener.next(false);
@@ -108,6 +109,9 @@ export class AuthService {
     this.clearAuthData();
     if (navigateAway) {
       this.router.navigate(['/']);
+    }
+    if (wasAuthenticated) {
+      this.messageService.show('Logout successful.');
     }
   }
 

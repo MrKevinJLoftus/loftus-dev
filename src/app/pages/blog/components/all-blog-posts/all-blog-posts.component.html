@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="post-grid" *ngIf="posts.length > 0; else noPosts">
+    <div class="post-summary mat-elevation-z5" *ngFor="let post of posts" (click)="viewPost(post)">
+      <div class="overlay">
+        <div class="view-box">
+          <mat-icon color="accent">visibility</mat-icon>
+          <span>View Post</span>
+        </div>
+      </div>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            {{ post.title }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>{{ post.createdDate | date}}</p>
+            <mat-chip-list #chipList aria-label="blog post tags">
+              <mat-chip *ngFor="let tag of post.tags" [removable]="false">
+                {{ tag }}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="ql-editor" [innerHTML]="post.body"></div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #noPosts>
+    <p>There are currently no blog posts available to view.</p>
+  </ng-template>
+  <div>
+    <button color="primary" mat-flat-button routerLink="/blog/create">Create Blog Post</button>
+  </div>
+</div>

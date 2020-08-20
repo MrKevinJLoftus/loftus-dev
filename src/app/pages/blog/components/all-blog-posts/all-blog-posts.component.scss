@@ -1,0 +1,56 @@
+@import '../../../../../variables.scss';
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0 0;
+  width: 90vw;
+}
+.post-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 80vw;
+  height: 60vh;
+}
+.post-summary {
+  height: 35vh;
+  width: 25vw;
+  margin: 2rem;
+  mat-card {
+    overflow: hidden;
+    height: 35vh;
+    width: 25vw;
+  }
+  .overlay {
+    position: fixed;
+    height: 35vh;
+    width: 25vw;
+    background: linear-gradient(200deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.5) 100%);
+    transition: all 0.7s;
+    cursor: pointer;
+    z-index: 99999999 !important;
+    opacity: 0;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &:hover {
+      opacity: 1;
+    }
+    .view-box {
+      border-radius: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 12vh;
+      width: 12vw;
+      color: white;
+
+    }
+  }
+}

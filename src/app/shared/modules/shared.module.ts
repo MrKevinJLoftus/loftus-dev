@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UnderConstructionComponent } from '../components/under-construction/under-construction.component';
@@ -16,7 +15,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MODULES = [
   CommonModule,
@@ -34,7 +35,9 @@ const MODULES = [
   MatMenuModule,
   MatSelectModule,
   MatListModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatChipsModule,
+  MatTooltipModule
 ];
 
 const COMPONENTS = [

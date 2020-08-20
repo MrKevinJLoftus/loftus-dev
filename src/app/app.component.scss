@@ -31,9 +31,12 @@
   display: flex;
 }
 
-.main-content {
+::ng-deep .main-content {
   height: 95vh;
   width: 100vw;
+  * :not(.material-icons) {
+    font-family: "Titillium Web", "Arial", "Times New Roman", "serif" !important;
+  }
 }
 
 h1 {
@@ -45,7 +48,6 @@ h1 {
 }
 
 .github, .linkedin {
-  // align-self: flex-end;
   height: 1.5rem;
   width: 1.5rem;
   margin: 0 1rem;
