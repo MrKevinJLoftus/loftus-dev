@@ -34,7 +34,7 @@
 ::ng-deep .main-content {
   height: 95vh;
   width: 100vw;
-  * {
+  * :not(.material-icons) {
     font-family: "Titillium Web", "Arial", "Times New Roman", "serif" !important;
   }
 }

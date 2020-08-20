@@ -16,10 +16,41 @@
   height: 60vh;
 }
 .post-summary {
-  height: 20vh;
-  width: 20vw;
+  height: 45vh;
+  width: 35vw;
   margin: 2rem;
-}
-mat-card {
-  border: 3px solid $lightMiddleBlue;
+  mat-card {
+    overflow: hidden;
+    height: 45vh;
+    width: 35vw;
+  }
+  .overlay {
+    position: fixed;
+    height: 45vh;
+    width: 35vw;
+    background: linear-gradient(200deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.5) 100%);
+    transition: all 0.7s;
+    cursor: pointer;
+    z-index: 99999999 !important;
+    opacity: 0;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &:hover {
+      opacity: 1;
+    }
+    .view-box {
+      border-radius: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 12vh;
+      width: 12vw;
+      color: white;
+
+    }
+  }
 }

@@ -35,7 +35,6 @@ export class CreateBlogPostComponent implements OnInit {
     ) {
       this.postForm = this.fb.group({
         title: ['', Validators.required],
-        author: [''],
         body: ['', Validators.required]
       });
       this.canSubmit = this.authService.getIsAuthenticated();
@@ -69,9 +68,10 @@ export class CreateBlogPostComponent implements OnInit {
     this.subscription.add(this.postForm.valueChanges.subscribe((formVals) => {
       this.post = {
         title: formVals.title,
-        author: formVals.author,
         body: formVals.body,
-        tags: this.tags
+        tags: this.tags,
+        createdDate: new Date(),
+        author: 'Anonymous'
       };
     }));
   }

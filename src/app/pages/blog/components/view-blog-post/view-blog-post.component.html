@@ -1,4 +1,6 @@
 <div class="container">
-  <app-post [post]="post"></app-post>
-  <button mat-flat-button color="primary" routerLink="/blog/all">Back</button>
+  <div class="post">
+    <app-post [post]="post"></app-post>
+  </div>
+  <button class="back-btn" mat-flat-button color="accent" routerLink="/blog/all">&lt; Back</button>
 </div>

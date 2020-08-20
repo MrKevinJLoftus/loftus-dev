@@ -15,12 +15,6 @@
           </mat-form-field>
         </div>
         <div>
-          <mat-form-field>
-            <mat-label>Author</mat-label>
-            <input matInput formControlName="author" />
-          </mat-form-field>
-        </div>
-        <div>
           <p-editor formControlName="body" [style]="{'height':'40vh'}" [modules]="quillModules">
             <p-header></p-header>
           </p-editor>
@@ -43,7 +37,7 @@
       </form>
     </mat-card-content>
   </mat-card>
-  <mat-card>
+  <mat-card class="preview-card">
     <mat-card-title>
       <h1>Output Preview</h1>
     </mat-card-title>

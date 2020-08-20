@@ -1,7 +1,8 @@
 export interface IBlogPost {
   title: string;
-  author: string;
+  author?: string;
   tags: string[];
+  createdDate?: Date;
 }
 
 export interface BlogPost extends IBlogPost {
