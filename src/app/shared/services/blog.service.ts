@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from './message.service';
-import { BlogPost, BlogPostSummary } from '../models/blog.model';
+import { BlogPost } from '../models/blog.model';
 import { environment } from 'src/environments/environment';
-import { Observable, of, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
 import { ApiResponse } from '../models/general.model';
 
 @Injectable({
@@ -25,6 +25,9 @@ export class BlogService {
       catchError((error) => {
         this.messageService.show(error.message);
         return throwError(error);
+      }),
+      tap((res) => {
+        this.messageService.show(res.message);
       })
     );
   }
@@ -32,8 +35,8 @@ export class BlogService {
   /**
    * Fetch details for one blog post.
    */
-  fetchPostByTitle(title: string): Observable<BlogPost> {
-    return this.http.get<{ post: BlogPost, message: string }>(`${environment.apiUrl}/blog/post/${title}`).pipe(
+  fetchPostById(id: number): Observable<BlogPost> {
+    return this.http.get<{ post: BlogPost, message: string }>(`${environment.apiUrl}/blog/post/${id}`).pipe(
       map(res => res.post),
       catchError((error) => {
         this.messageService.show(error.message);
@@ -45,13 +48,28 @@ export class BlogService {
   /**
    * Fetch title and blurb for all blog posts.
    */
-  fetchAllPosts(): Observable<BlogPostSummary[]> {
-    return this.http.get<{ posts: BlogPostSummary[], message: string }>(`${environment.apiUrl}/blog/posts`).pipe(
+  fetchAllPosts(): Observable<BlogPost[]> {
+    return this.http.get<{ posts: BlogPost[], message: string }>(`${environment.apiUrl}/blog/posts`).pipe(
       map(res => res.posts),
       catchError((error) => {
         this.messageService.show(error.message);
         console.log(error);
         return throwError(error);
+      })
+    );
+  }
+
+  /**
+   * Set a blog post to deleted.
+   */
+  deletePost(id: number): Observable<ApiResponse> {
+    return this.http.delete<ApiResponse>(`${environment.apiUrl}/blog/post/${id}`).pipe(
+      catchError((error) => {
+        this.messageService.show(error.message);
+        return throwError(error);
+      }),
+      tap((res) => {
+        this.messageService.show(res.message);
       })
     );
   }

@@ -2,5 +2,8 @@
   <div class="post">
     <app-post [post]="post"></app-post>
   </div>
-  <button class="back-btn" mat-flat-button color="accent" routerLink="/blog/all">&lt; Back</button>
+  <div class="actions">
+    <button class="back-btn" mat-flat-button color="accent" routerLink="/blog/all">&lt; Back</button>
+    <button *ngIf="showDelete" mat-flat-button color="warn" (click)="deletePost()"><mat-icon>delete</mat-icon>Delete Post</button>
+  </div>
 </div>

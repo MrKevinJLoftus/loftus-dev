@@ -16,18 +16,18 @@
   height: 60vh;
 }
 .post-summary {
-  height: 45vh;
-  width: 35vw;
+  height: 35vh;
+  width: 25vw;
   margin: 2rem;
   mat-card {
     overflow: hidden;
-    height: 45vh;
-    width: 35vw;
+    height: 35vh;
+    width: 25vw;
   }
   .overlay {
     position: fixed;
-    height: 45vh;
-    width: 35vw;
+    height: 35vh;
+    width: 25vw;
     background: linear-gradient(200deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.5) 100%);
     transition: all 0.7s;
     cursor: pointer;
