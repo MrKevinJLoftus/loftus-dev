@@ -7,7 +7,8 @@ import { Subscription } from 'rxjs';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { MessageService } from 'src/app/shared/services/message.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ApiResponse } from 'src/app/shared/models/general.model';
 
 @Component({
   selector: 'app-create-blog-post',
@@ -25,14 +26,22 @@ export class CreateBlogPostComponent implements OnInit {
   quillModules: any = {
     toolbar: [[{ 'header': 1 }, { 'header': 2 }, { 'header': 3 }], ['bold', 'italic', 'underline', 'strike'], [{ 'align': [] }], ['link', 'image']]
   };
+  postId: number;
+  isEditing = false;
 
   constructor(
     private blogService: BlogService,
     private fb: FormBuilder,
     private authService: AuthService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) {
+      this.subscription.add(
+        this.route.paramMap.subscribe(params => {
+          this.fetchPost(params);
+        })
+      );
       this.postForm = this.fb.group({
         title: ['', Validators.required],
         body: ['', Validators.required]
@@ -48,17 +57,48 @@ export class CreateBlogPostComponent implements OnInit {
   }
 
   /**
+   * Fetch post specified in route param.
+   */
+  fetchPost(params: ParamMap) {
+    const postId = Number(params.get('id'));
+    if (postId) {
+      this.postId = postId;
+      this.blogService.fetchPostById(postId).subscribe((res) => {
+        this.isEditing = true;
+        this.post = res;
+        this.postForm.controls['title'].setValue(res.title);
+        this.postForm.controls['body'].setValue(res.body);
+        this.tags = res.tags;
+      });
+    }
+  }
+
+  /**
    * Call service to save blog post.
    */
   submitPost() {
     if (this.postForm.valid) {
-      this.blogService.createNewBlogPost(this.post).subscribe((res) => {
-        this.messageService.show(res.message);
-        this.router.navigate(['/blog/all']);
-      });
+      if (this.isEditing) {
+        // update existing post
+        this.blogService.updatePost(this.postId, this.post).subscribe((res) => {
+          this.handleApiResponse(res);
+        });
+      } else {
+        this.blogService.createNewBlogPost(this.post).subscribe((res) => {
+          this.handleApiResponse(res);
+        });
+      }
     } else {
       this.messageService.show('Blog post title and body are required fields.');
     }
+  }
+
+  /**
+   * Show message and redirect user to all blog posts page.
+   */
+  handleApiResponse(res: ApiResponse) {
+    this.messageService.show(res.message);
+    this.router.navigate(['/blog/all']);
   }
 
   /**

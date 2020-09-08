@@ -14,7 +14,7 @@ export class ViewBlogPostComponent {
   subscriptions: Subscription = new Subscription();
   postId: number;
   post: BlogPost;
-  showDelete = false;
+  canEdit = false;
 
   constructor(
     private router: Router,
@@ -27,7 +27,7 @@ export class ViewBlogPostComponent {
         this.fetchPost(params);
       })
     );
-    this.showDelete = this.authService.getIsAuthenticated();
+    this.canEdit = this.authService.getIsAuthenticated();
   }
 
   /**
@@ -56,5 +56,4 @@ export class ViewBlogPostComponent {
       });
     }
   }
-
 }
