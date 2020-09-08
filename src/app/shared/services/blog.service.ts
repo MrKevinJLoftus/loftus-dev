@@ -73,4 +73,21 @@ export class BlogService {
       })
     );
   }
+
+  /**
+   * Update an existing blog post.
+   * @param id - db id of the blog post to update
+   * @param updatedPost - BlogPost object with updated data.
+   */
+  updatePost(id: number, updatedPost: BlogPost): Observable<ApiResponse> {
+    return this.http.patch<ApiResponse>(`${environment.apiUrl}/blog/post/${id}`, { blogPost: updatedPost }).pipe(
+      catchError((error) => {
+        this.messageService.show(error.message);
+        return throwError(error);
+      }),
+      tap((res) => {
+        this.messageService.show(res.message);
+      })
+    );
+  }
 }
