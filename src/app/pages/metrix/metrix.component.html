@@ -1,3 +1,28 @@
 <div class="container">
-
+  <div class="goals-grid">
+    <div class="goal-summary mat-elevation-z5" *ngFor="let goal of goals">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            {{ goal.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p *ngIf="goal.createdDate">Tracking since {{ goal.createdDate | date}}</p>
+            <p>{{ goal.description }}</p>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="goal.updates?.length > 0; else noUpdates">
+            <div *ngFor="let update of goal.updates">
+              <h2>{{ update.rating }}/10 on {{ update.createdDate | date }}</h2>
+              <p>{{ update.description }}</p>
+            </div>
+          </div>
+          <ng-template #noUpdates>
+            <p>You have not added any updates for this goal.</p>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
