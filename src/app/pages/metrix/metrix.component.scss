@@ -1,0 +1,10 @@
+@import '../../../variables.scss';
+.container {
+  background: rgb(86,0,125);
+  background: linear-gradient(200deg, $primary-dark 0%, $middleBlue 50%, $primary 100%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}

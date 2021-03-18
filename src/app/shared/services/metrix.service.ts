@@ -21,7 +21,7 @@ export class MetrixService {
    * Create new goal.
    */
   createGoal(newGoal: Goal): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${environment.apiUrl}/goal`, { newGoal }).pipe(
+    return this.http.post<ApiResponse>(`${environment.apiUrl}/metrix/goal`, newGoal).pipe(
       catchError((error) => {
         this.messageService.show(error.message);
         return throwError(error);
@@ -36,7 +36,7 @@ export class MetrixService {
    * Fetch all existing goals and updates for current user.
    */
   fetchAllGoalsAndUpdates(): Observable<FetchGoalResponse> {
-    return this.http.get<FetchGoalResponse>(`${environment.apiUrl}/goals`).pipe(
+    return this.http.get<FetchGoalResponse>(`${environment.apiUrl}/metrix/goals`).pipe(
       catchError((error) => {
         this.messageService.show(error.message);
         return throwError(error);

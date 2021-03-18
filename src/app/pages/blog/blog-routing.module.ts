@@ -14,8 +14,7 @@ const routes: Routes = [
       { path: ':title', component: ViewBlogPostComponent, pathMatch: 'full' },
       { path: '**', redirectTo: 'all' }
     ]
-  },
-
+  }
 ];
 
 @NgModule({

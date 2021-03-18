@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0 0;
+  width: 90vw;
+}
+.goals-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 80vw;
+  height: 60vh;
+}
+.new-goal-section {
+  margin-top: 2rem;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    color: white;
+  }
+}

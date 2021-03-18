@@ -18,6 +18,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MODULES = [
   CommonModule,
@@ -27,6 +28,7 @@ const MODULES = [
   MatToolbarModule,
   MatSidenavModule,
   MatDividerModule,
+  MatDialogModule,
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,

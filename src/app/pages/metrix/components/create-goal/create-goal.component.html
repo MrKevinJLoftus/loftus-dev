@@ -1,0 +1,41 @@
+<mat-card class="new-goal-card">
+  <mat-card-title>
+    <h1>Create New Goal</h1>
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="goalForm" (ngSubmit)="submitForm()">
+      <div>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput required formControlName="name" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput required formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Frequency</mat-label>
+          <mat-select formControlName="frequency">
+            <mat-option *ngFor="let f of frequencies" [value]="f.numDays">
+              {{ f.description }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="showOtherFreqInput">
+        <mat-form-field>
+          <mat-label>Number of Days</mat-label>
+          <input matInput required formControlName="otherFreq" type="number" />
+        </mat-form-field>
+      </div>
+      <div class="form-buttons">
+        <button color="accent" mat-flat-button routerLink="/metrix/create" (click)="clearForm()">Clear</button>
+        <button color="primary" mat-flat-button routerLink="/metrix/create" type="submit">Create Goal</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

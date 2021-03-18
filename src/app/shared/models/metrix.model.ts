@@ -20,3 +20,8 @@ export class FetchGoalResponse implements ApiResponse {
   message: string;
   goals: Goal[];
 }
+
+export class Frequency {
+  numDays: number;
+  description: string;
+}

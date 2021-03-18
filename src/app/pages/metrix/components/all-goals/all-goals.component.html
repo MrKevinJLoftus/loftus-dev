@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="container">
+    <h1>Metrix</h1>
+    <div class="goals-grid" *ngIf="goals.length > 0">
+      <div class="goal-summary mat-elevation-z5" *ngFor="let goal of goals">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{ goal.name }}
+            </mat-card-title>
+            <mat-card-subtitle>
+              <p>{{ goal.description }}</p>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <hr>
+            <div *ngIf="goal.updates?.length > 0; else noUpdates">
+              <div *ngFor="let update of goal.updates">
+                <h2>{{ update.rating }}/10 on {{ update.createdDate | date }}</h2>
+                <p>{{ update.description }}</p>
+              </div>
+            </div>
+            <ng-template #noUpdates>
+              <p>You have not added any updates for this goal.</p>
+            </ng-template>
+            <div class="button-row">
+              <button color="accent" mat-flat-button [routerLink]="'/metrix/update/' + goal.goalId">Add Update</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="new-goal-section">
+      <button color="primary" mat-flat-button routerLink="/metrix/create">Create New Goal</button>
+    </div>
+  </div>
+</div>
