@@ -4,7 +4,6 @@ export class Goal {
   goalId?: number;
   name!: string;
   description!: string;
-  frequency!: number;
   createdDate?: Date;
   updates?: GoalUpdate[];
 }
@@ -19,9 +18,4 @@ export class GoalUpdate {
 export class FetchGoalResponse implements ApiResponse {
   message: string;
   goals: Goal[];
-}
-
-export class Frequency {
-  numDays: number;
-  description: string;
 }

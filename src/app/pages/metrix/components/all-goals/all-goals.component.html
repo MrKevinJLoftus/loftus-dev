@@ -24,7 +24,7 @@
               <p>You have not added any updates for this goal.</p>
             </ng-template>
             <div class="button-row">
-              <button color="accent" mat-flat-button [routerLink]="'/metrix/update/' + goal.goalId">Add Update</button>
+              <button color="accent" mat-flat-button (click)="openUpdateDialog(goal)">Add Update</button>
             </div>
           </mat-card-content>
         </mat-card>

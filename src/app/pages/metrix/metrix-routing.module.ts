@@ -10,7 +10,6 @@ const routes: Routes = [
     children: [
       { path: 'all', component: AllGoalsComponent, pathMatch: 'full' },
       { path: 'create', component: CreateGoalComponent, pathMatch: 'full' },
-      { path: 'update/:id', component: GoalUpdateComponent, pathMatch: 'full' },
       { path: '**', redirectTo: 'all' }
     ]
   }

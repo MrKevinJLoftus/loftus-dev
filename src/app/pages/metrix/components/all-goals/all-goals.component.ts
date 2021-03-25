@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Goal } from 'src/app/shared/models/metrix.model';
 import { MetrixService } from 'src/app/shared/services/metrix.service';
+import { GoalUpdateComponent } from '../goal-update/goal-update.component';
 
 @Component({
   selector: 'app-all-goals',
@@ -12,7 +14,7 @@ export class AllGoalsComponent implements OnInit, OnDestroy {
   goals: Goal[] = [];
   $subscription: Subscription = new Subscription();
 
-  constructor(private metrixService: MetrixService) { }
+  constructor(private metrixService: MetrixService, private dialog: MatDialog) { }
 
   /**
    * Initialize component.
@@ -41,4 +43,15 @@ export class AllGoalsComponent implements OnInit, OnDestroy {
     );
   }
 
+  /**
+   * Open MatDialog with the GoalUpdateComponent.
+   */
+  openUpdateDialog(goal: Goal): void {
+    const dialogRef = this.dialog.open(GoalUpdateComponent, {
+      data: goal
+    });
+    this.$subscription.add(dialogRef.afterClosed().subscribe((res) => {
+      this.fetchAllGoals();
+    }));
+  }
 }

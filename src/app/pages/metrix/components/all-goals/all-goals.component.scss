@@ -11,8 +11,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 80vw;
-  height: 60vh;
+  width: 90vw;
+  min-height: 60vh;
+}
+mat-card, mat-card-content, mat-card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.goal-summary {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem;
+  mat-card {
+    width: 22vw;
+    height: 45vh;
+  }
 }
 .new-goal-section {
   margin-top: 2rem;

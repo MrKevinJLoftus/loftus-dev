@@ -1,1 +1,29 @@
-<p>goal-update works!</p>
+<mat-card class="goal-update-card">
+  <mat-card-title>
+    <h1>Update - {{ data.name }}</h1>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="rating-container">
+      <div class="stars">
+        <button mat-icon-button *ngFor="let index of ratingsArray" (click)="setRating(index)">
+          <mat-icon>{{ getIcon(index) }}</mat-icon>
+        </button>
+      </div>
+      <div *ngIf="rating" class="rating-display">
+        <h2>{{ rating }} / {{ numStars }}</h2>
+      </div>
+    </div>
+    <form [formGroup]="updateForm" (ngSubmit)="submitForm()">
+      <div>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput required formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="form-buttons">
+        <button color="accent" mat-flat-button (click)="clearForm()">Clear</button>
+        <button color="primary" mat-flat-button type="submit">Save Update</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
