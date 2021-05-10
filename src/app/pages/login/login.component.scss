@@ -1,7 +1,7 @@
 @import '../../../variables.scss';
 
 .container {
-  height: 95vh;
+  min-height: calc(100vh - 50px);
   background: linear-gradient($primary-light 0%, $primary-light 50%, #FFF 100%);
   display: flex;
   justify-content: center;
@@ -12,4 +12,15 @@
 p {
   width: 50vw;
   text-indent: 2rem;
+  color: white;
+  a {
+    color: $accent;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
 }

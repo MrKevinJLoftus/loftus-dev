@@ -2,7 +2,7 @@
 .container {
   background: rgb(86,0,125);
   background: linear-gradient(200deg, $accent 0%, $middleBlue 50%, $primary 100%);
-  height: 100%;
+  min-height: calc(100vh - 50px);
   width: 100%;
   display: flex;
 }
@@ -20,18 +20,21 @@
   text-align: center;
 }
 
-p a {
-  color: $accent;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-  &:focus {
-    outline: none;
+p {
+  color: white;
+  a {
+    color: $accent;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 }
 
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: $large-break-point + 1px) {
   .kevin-face {
     max-width: 15%;
     margin-bottom: 6rem;
@@ -41,7 +44,7 @@ p a {
   }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+@media only screen and (min-width: $medium-break-point + 1px) and (max-width: $large-break-point) {
   .kevin-face {
     max-width: 22%;
     margin-bottom: 6rem;
@@ -51,7 +54,7 @@ p a {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: $small-break-point + 1px) and (max-width: $medium-break-point) {
   .kevin-face {
     max-width: 45%;
     margin-bottom: 3rem;
@@ -61,7 +64,7 @@ p a {
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: $small-break-point) {
   .kevin-face {
     max-width: 45%;
     margin-bottom: 3rem;
@@ -71,7 +74,7 @@ p a {
   }
 }
 
-@media only screen and (max-width: 767px) and (orientation: portrait) {
+@media only screen and (max-width: $small-break-point) and (orientation: portrait) {
   .kevin-face {
     max-width: 60%;
     margin-bottom: 3rem;

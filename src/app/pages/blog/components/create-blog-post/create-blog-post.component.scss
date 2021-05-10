@@ -1,3 +1,6 @@
+.container {
+  min-height: calc(100vh - 50px);
+}
 .split-view {
   height: 75vh;
   display: flex;
@@ -14,13 +17,15 @@
   margin-right: 2rem;
 }
 .header {
-  margin: 1.5rem 0;
+  margin: 2.5vh 0;
   text-align: center;
   h1 {
     font-size: 2rem;
   }
+  height: 5vh;
 }
 .footer {
+  height: 10vh;
   text-align: center;
   margin-top: 2rem;
 }

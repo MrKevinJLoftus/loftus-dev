@@ -27,13 +27,14 @@
 }
 
 .mat-toolbar {
-  height: 5vh;
+  height: 50px;
   display: flex;
 }
 
 ::ng-deep .main-content {
-  height: 95vh;
+  min-height: calc(100vh - 50px);
   width: 100vw;
+  overflow: auto;
   * :not(.material-icons) {
     font-family: "Titillium Web", "Arial", "Times New Roman", "serif" !important;
   }

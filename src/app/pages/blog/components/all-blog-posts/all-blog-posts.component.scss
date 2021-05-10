@@ -12,23 +12,81 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 80vw;
-  height: 60vh;
+  flex-wrap: wrap;
+  width: 90vw;
+  min-height: 60vh;
 }
 .post-summary {
-  height: 35vh;
-  width: 25vw;
-  margin: 2rem;
-  mat-card {
-    overflow: hidden;
-    height: 35vh;
+  @media only screen and (min-width: $large-break-point + 1px) {
+    height: 50vh;
     width: 25vw;
-
+    mat-card {
+      overflow: hidden;
+      height: 50vh;
+      width: 25vw;
+    }
+    .overlay {
+      height: 50vh;
+      width: 25vw;
+    }
   }
-  .overlay {
-    position: fixed;
-    height: 35vh;
+  @media only screen and (min-width: $medium-break-point + 1px) and (max-width: $large-break-point) {
+    height: 50vh;
     width: 25vw;
+    mat-card {
+      overflow: hidden;
+      height: 50vh;
+      width: 25vw;
+    }
+    .overlay {
+      height: 50vh;
+      width: 25vw;
+    }
+  }
+  @media only screen and (min-width: $small-break-point + 1px) and (max-width: $medium-break-point) {
+    height: 50vh;
+    width: 35vw;
+    mat-card {
+      overflow: hidden;
+      height: 50vh;
+      width: 35vw;
+    }
+    .overlay {
+      height: 50vh;
+      width: 35vw;
+    }
+  }
+  @media only screen and (max-width: $small-break-point) {
+    height: 50vh;
+    width: 45vw;
+    mat-card {
+      overflow: hidden;
+      height: 50vh;
+      width: 45vw;
+    }
+    .overlay {
+      height: 50vh;
+      width: 45vw;
+    }
+  }
+  @media only screen and (max-width: $small-break-point) and (orientation: portrait) {
+    height: 60vh;
+    width: 80vw;
+    mat-card {
+      overflow: hidden;
+      height: 60vh;
+      width: 80vw;
+    }
+    .overlay {
+      height: 60vh;
+      width: 80vw;
+    }
+  }
+
+  margin: 2rem;
+
+  .overlay {
+    position: absolute;
     background: linear-gradient(200deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.5) 100%);
     transition: all 0.7s;
     cursor: pointer;
