@@ -2,7 +2,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { MetrixComponent } from './metrix.component';
 import { CreateGoalComponent } from './components/create-goal/create-goal.component';
-import { GoalUpdateComponent } from './components/goal-update/goal-update.component';
 import { AllGoalsComponent } from './components/all-goals/all-goals.component';
 
 const routes: Routes = [

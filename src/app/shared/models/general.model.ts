@@ -1,7 +1,7 @@
-export interface Route {
-  url: string;
-  text: string;
-  icon: string;
+export class Route {
+  url!: string;
+  text!: string;
+  icon!: string;
 }
 
 export enum MessageType {
@@ -10,11 +10,11 @@ export enum MessageType {
   SUCCESS
 }
 
-export interface AuthData {
-  username: string;
-  password: string;
+export class AuthData {
+  username!: string;
+  password!: string;
 }
 
-export interface ApiResponse {
-  message: string;
+export class ApiResponse {
+  message!: string;
 }
