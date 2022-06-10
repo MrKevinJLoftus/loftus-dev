@@ -1,0 +1,12 @@
+<h1>Chores Dashboard</h1>
+<table *ngIf="dashboardData.length > 0">
+  <thead>
+    <th>Chore</th>
+    <th>Last Completed</th>
+    <th>Completed By</th>
+    <th>Notes</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of dashboardData"></tr>
+  </tbody>
+</table>

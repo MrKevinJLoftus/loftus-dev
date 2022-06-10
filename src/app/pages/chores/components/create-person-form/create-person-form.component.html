@@ -1,0 +1,24 @@
+<mat-card color="primary">
+  <mat-card-content>
+    <form [formGroup]="personForm" (submit)="submitForm()">
+      <div class="form-fields">
+        <div class="field">
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Chore Description" formControlName="name">
+            <ng-container *ngIf="personForm.controls.name.invalid && (personForm.controls.name.dirty || personForm.controls.name.touched)">
+              <mat-error *ngIf="personForm.controls.name.errors?.required">Description is required</mat-error>
+            </ng-container>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+          >Add Worker</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
