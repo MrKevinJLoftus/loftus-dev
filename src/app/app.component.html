@@ -26,7 +26,7 @@
       <mat-nav-list>
         <a
           mat-list-item
-          *ngFor="let route of routes"
+          *ngFor="let route of accessibleRoutes"
           [routerLink]="[route.url]"
           (click)="sidenav.toggle()"
         >

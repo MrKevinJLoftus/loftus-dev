@@ -18,6 +18,10 @@ export class AppComponent {
     { url: '/blog', text: 'Blog', icon: 'comment' },
     { url: '/projects', text: 'Projects', icon: 'build' },
   ];
+  protectedRoutes: Route[] = [
+    { url: '/big-button', text: 'Big Button', icon: 'touch_app' }
+  ];
+  accessibleRoutes: Route[] = this.routes;
   isAuthenticated = false;
   isLoading = false;
 
@@ -35,6 +39,7 @@ export class AppComponent {
       // subscribe to auth changes
       this.authService.getAuthStatusListener().subscribe(res => {
         this.isAuthenticated = res;
+        this.accessibleRoutes = this.isAuthenticated ? [...this.routes, ...this.protectedRoutes] : [...this.routes]
       });
       // attempt to auto-auth user
       this.authService.autoAuthUser();
